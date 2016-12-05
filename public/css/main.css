@@ -4,6 +4,10 @@
 	background-size: cover;
 }
 
+.login{
+	padding-top: 6vh;
+}
+
 .fondo h2, .fondo h5{
 	color: #fff;
 }
@@ -13,7 +17,7 @@
 }
 .footer{
 	background-color: #637988;
-	height: 30vh;
+	height: auto;
 	color: #fff;
 	padding: 2vh 0vh;
 }
