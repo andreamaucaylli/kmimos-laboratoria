@@ -1,0 +1,25 @@
+{
+  "name": "kmimos-laboratoria",
+  "version": "1.0.0",
+  "description": "kmimos website-app ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreamaucaylli/kmimos-laboratoria.git"
+  },
+  "keywords": [
+    "js",
+    "api",
+    "geolocation"
+  ],
+  "author": "team labworks",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andreamaucaylli/kmimos-laboratoria/issues"
+  },
+  "homepage": "https://github.com/andreamaucaylli/kmimos-laboratoria#readme"
+}
