@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/andreamaucaylli/kmimos-laboratoria/issues"
   },
-  "homepage": "https://github.com/andreamaucaylli/kmimos-laboratoria#readme"
+  "homepage": "https://github.com/andreamaucaylli/kmimos-laboratoria#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
 }
