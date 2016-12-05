@@ -1,3 +1,15 @@
+/***general***/
+*{
+	box-sizing: border-box;
+	padding: 0px;
+	margin: 0px;
+}
+/****form****/
+.waves-effect {
+	width: 100%;
+}
+/************/
+
 .fondo{
 	background-image: url("../img/wallpaper2.jpg");
 	height: 81vh;

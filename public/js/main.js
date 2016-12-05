@@ -25,7 +25,6 @@ $(document).ready(function(){
       },
       errorElement : 'div',
       errorPlacement: function(error, element) {
-        console.log(element);
         var placement = $(element).data('error');
         if (placement) {
           $(placement).append(error)
