@@ -6,21 +6,22 @@
 	<link rel="stylesheet" href="css/vendor/materialize.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendor/icomoon.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
- <div class="header">
- 	<div class="container">
-		<div class="row">
-			<div class="col l9">
-				<img src="img/kmimos-logo.png" alt="">
-			</div>
-			<div class="col l3">
-				<span>Ingresa</span>
-				<span>Regístrate</span>
+	<div class="header">
+	 	<div class="container">
+			<div class="row">
+				<div class="col l9">
+					<img src="img/kmimos-logo.png" alt="">
+				</div>
+				<div class="col l3">
+					<span>Ingresa</span>
+					<span>Regístrate</span>
+				</div>
 			</div>
 		</div>
 	</div>
- </div>
 	<div class="fondo">
 		<div class="container">
 			<div class="row">	
@@ -29,6 +30,33 @@
 						<h2>VIAJA SIN PREOCUPACIONES</h2>
 						<h5>Deja a tu mascota con un cuidador de confianza que la atenderá como si fuera parte de su familia.</h5>
 					</div>
+				</div>
+				<div class="col s12 l4">
+					<div class="cardpanel"></div>
+					<form action="" name="myform">
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">location_on</i>
+								<input placeholder="" id="icon_prefix" type="text" class="validate" name="lugar">
+								<label for="icon_prefix">First Name</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12">
+								<i class="material-icons prefix">today</i>
+								<input name="fecha" type="text" class="datepicker">
+								<label for="fecha">Desde</label>
+							</div>
+							<div class="input-field col s12">
+								<i class="material-icons prefix">today</i>
+								<input name="fecha" type="text" class="datepicker">
+								<label for="fecha">Hasta</label>
+							</div>
+						</div>
+						<button class="btn waves-effect waves-light" type="submit" name="action">Submit
+							<i class="material-icons right">send</i>
+						</button>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -64,6 +92,8 @@
 			</div>
 		</div>
 	</div>
+
+	<script src="jquery-3.1.1.min.js"></script>
 	<script src="js/vendor/materialize.min.js"></script>
 </body>
 </html>
