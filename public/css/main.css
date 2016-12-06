@@ -1,7 +1,14 @@
+/****form****/
+.waves-effect {
+	width: 100%;
+}
+/************/
+
 .fondo{
 	background-image: url("../img/wallpaper2.jpg");
-	height: 81vh;
 	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 2vh 0vh;
 }
 
 .login{
@@ -17,7 +24,6 @@
 }
 .footer{
 	background-color: #637988;
-	height: auto;
 	color: #fff;
 	padding: 2vh 0vh;
 }

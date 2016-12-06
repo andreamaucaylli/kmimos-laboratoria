@@ -11,21 +11,21 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
- <div class="header">
- 		<div class="container">
+	<div class="header">
+		<div class="container">
 			<div class="row">
-				<div class="col m9 l9">
+				<div class="col s6 m9 l9">
 					<img src="img/kmimos-logo.png" alt="">
 				</div>
-				<div class="col m3 l3">
-					<div class="login">	
+				<div class="col s6 m3 l3">
+					<div class="login right-align">	
 						<a data-remodal-target="modal">Ingresa</a>
 						<span><a href="	">Regístrate</a></span>
 					</div>
 				</div>
 			</div>
 		</div>
- 	</div>
+	</div>
  	<!-- REMODAL LOGIN -->
 	<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
 		<button data-remodal-action="close" class="remodal-close"></button>
@@ -60,6 +60,36 @@
 						<h5>Deja a tu mascota con un cuidador de confianza que la atenderá como si fuera parte de su familia.</h5>
 					</div>
 				</div>
+				<!--FORM-->
+				<div class="col s12 l4">
+					<div class="card-panel">
+						<form id="myform">
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">location_on</i>
+									<input placeholder="" id="icon_prefix" type="text" class="validate" name="lugar">
+									<label for="icon_prefix">Ubicación</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">today</i>
+									<input name="fecha" type="text" class="datepicker">
+									<label for="fecha">Desde</label>
+								</div>
+								<div class="input-field col s12">
+									<i class="material-icons prefix">today</i>
+									<input name="fecha" type="text" class="datepicker">
+									<label for="fecha">Hasta</label>
+								</div>
+							</div>
+							<button class="btn waves-effect waves-light" id="btn">Buscar
+								<i class="material-icons right">send</i>
+							</button>
+						</form>
+					</div>
+				</div>
+				<!--form-->
 			</div>
 		</div>
 	</div>
@@ -86,16 +116,18 @@
 				<div class="col m4 l4">
 					<p>Inscríbete en nuestro newsletter</p>
 					<div class="input-field inline">
-            <input id="email" type="email" class="validate">
-            <label for="email" data-error="wrong" data-success="right">Email</label>
-            <a class="waves-effect waves-light btn">Enviar</a>
-          </div>
+						<input id="email" type="email" class="validate">
+						<label for="email" data-error="wrong" data-success="right">Email</label>
+						<a class="waves-effect waves-light btn">Enviar</a>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-	<script type='text/javascript' src='js/vendor/jquery-3.1.1.js'></script>
+	<script src="js/vendor/jquery-3.1.1.min.js"></script>
 	<script src="js/vendor/materialize.min.js"></script>
+	<script src="js/vendor/jquery.validate.js"></script>
 	<script src="js/vendor/remodal/remodal.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>
