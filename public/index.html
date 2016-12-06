@@ -6,24 +6,51 @@
 	<link rel="stylesheet" href="css/vendor/materialize.min.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendor/icomoon.css">
+	<link rel="stylesheet" href="css/vendor/remodal/remodal.css">
+	<link rel="stylesheet" href="css/vendor/remodal/remodal-default-theme.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
  <div class="header">
- 	<div class="container">
-		<div class="row">
-			<div class="col m9 l9">
-				<img src="img/kmimos-logo.png" alt="">
-			</div>
-			<div class="col m3 l3">
-				<div class="login">	
-					<span><a href="	">Ingresa</a></span>
-					<span><a href="	">Regístrate</a></span>
+ 		<div class="container">
+			<div class="row">
+				<div class="col m9 l9">
+					<img src="img/kmimos-logo.png" alt="">
+				</div>
+				<div class="col m3 l3">
+					<div class="login">	
+						<a data-remodal-target="modal">Ingresa</a>
+						<span><a href="	">Regístrate</a></span>
+					</div>
 				</div>
 			</div>
 		</div>
+ 	</div>
+ 	<!-- REMODAL LOGIN -->
+	<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
+		<button data-remodal-action="close" class="remodal-close"></button>
+		<h3>INGRESA</h3>
+		<div id="fb-root"></div>
+    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1602684570041328',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
 	</div>
- </div>
+	<!-- REMODAL LOGIN -->
 	<div class="fondo">
 		<div class="container">
 			<div class="row">	
@@ -67,6 +94,8 @@
 			</div>
 		</div>
 	</div>
+	<script type='text/javascript' src='js/vendor/jquery-3.1.1.js'></script>
 	<script src="js/vendor/materialize.min.js"></script>
+	<script src="js/vendor/remodal/remodal.min.js"></script>
 </body>
 </html>
