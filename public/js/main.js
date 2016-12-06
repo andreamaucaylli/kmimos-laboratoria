@@ -32,7 +32,7 @@ $(document).ready(function(){
 
     $.when(
       $.ajax({ 
-        url: "https://localhost:3000/cuidadores?lugar="+distritoIngresado,
+        url: "/cuidadores?lugar="+distritoIngresado,
         type: "GET"
       }), 
       $.ajax({
