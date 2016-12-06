@@ -54,7 +54,7 @@ $(document).ready(function(){
 
     $.when(
       $.ajax({ 
-        url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
+        url: "https://localhost:3000/cuidadores?lugar="+distritoIngresado,
         type: "GET"
       }), 
       $.ajax({
