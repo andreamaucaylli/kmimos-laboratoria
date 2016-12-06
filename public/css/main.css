@@ -1,0 +1,36 @@
+/****form****/
+.waves-effect {
+	width: 100%;
+}
+/************/
+
+.fondo{
+	background-image: url("../img/wallpaper2.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 2vh 0vh;
+}
+
+.login{
+	padding-top: 6vh;
+}
+
+.fondo h2, .fondo h5{
+	color: #fff;
+}
+.cajatexto{
+	padding: 2vh;
+	background-color: rgba(0, 0, 0, 0.36);
+}
+.footer{
+	background-color: #637988;
+	color: #fff;
+	padding: 2vh 0vh;
+}
+.footer a{
+	color: #fff;
+}
+.social span{
+	font-size: 1.3rem;
+	padding: 0vh 0.5vh;
+}

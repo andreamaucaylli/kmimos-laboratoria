@@ -1,13 +1,11 @@
 var express = require("express");
 var app = express();
 var dream = require('dreamjs');
-var helloworld = dream.output();
-app.use(express.static(__dirname + "/public"));
 
 dream.customType('pi', function () {
   return Math.PI;
 });
-var data3= dream
+var cuidador = dream
   .schema({
     name: 'name',
     age: 'age',
@@ -25,9 +23,10 @@ var data3= dream
   .generateRnd(100)
   .output();
   
-app.get('/helloworld', function (req, res) {
-  res.send(data3);
+app.get('/cuidador', function (req, res) {
+  res.send(cuidador);
 })
-app.listen(3001,function(){
+app.use(express.static(__dirname + "/public"));
+app.listen(3000,function(){
     console.log("Servidor encedido!!");
 });

@@ -1,16 +1,137 @@
 <!DOCTYPE html>
 <html>
+<html lang="en">
 <head>
-    <title>SPIKE</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kmimos</title>
+	<link rel="stylesheet" href="css/vendor/materialize.min.css">
+	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="css/vendor/icomoon.css">
+	<link rel="stylesheet" href="css/vendor/remodal/remodal.css">
+	<link rel="stylesheet" href="css/vendor/remodal/remodal-default-theme.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <form id="form">
-        <button id="buscador">BUSCAR</button>
-    </form>
+	<div class="header">
+		<div class="container">
+			<div class="row">
+				<div class="col s6 m9 l9">
+					<img src="img/kmimos-logo.png" alt="">
+				</div>
+				<div class="col s6 m3 l3">
+					<div class="login right-align">	
+						<a data-remodal-target="modal">Ingresa</a>
+						<span><a href="	">Regístrate</a></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+ 	<!-- REMODAL LOGIN -->
+	<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
+		<button data-remodal-action="close" class="remodal-close"></button>
+		<h3>INGRESA</h3>
+		<div id="fb-root"></div>
+    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1602684570041328',
+          xfbml      : true,
+          version    : 'v2.8'
+        });
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+	</div>
+	<!-- REMODAL LOGIN -->
+	<div class="fondo">
+		<div class="container">
+			<div class="row">	
+				<div class="col l8">
+					<div class="cajatexto hide-on-small-only">
+						<h2>VIAJA SIN PREOCUPACIONES</h2>
+						<h5>Deja a tu mascota con un cuidador de confianza que la atenderá como si fuera parte de su familia.</h5>
+					</div>
+				</div>
+				<!--FORM-->
+				<div class="col s12 l4">
+					<div class="card-panel">
+						<form id="myform">
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">location_on</i>
+									<input placeholder="" id="icon_prefix" type="text" class="validate" name="lugar">
+									<label for="icon_prefix">Ubicación</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="input-field col s12">
+									<i class="material-icons prefix">today</i>
+									<input name="fecha" type="text" class="datepicker">
+									<label for="fecha">Desde</label>
+								</div>
+								<div class="input-field col s12">
+									<i class="material-icons prefix">today</i>
+									<input name="fecha" type="text" class="datepicker">
+									<label for="fecha">Hasta</label>
+								</div>
+							</div>
+							<button class="btn waves-effect waves-light" id="btn">Buscar
+								<i class="material-icons right">send</i>
+							</button>
+						</form>
+					</div>
+				</div>
+				<!--form-->
+			</div>
+		</div>
+	</div>
     <div id="resultados"></div>
- <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
- <script type="text/javascript" src="js/app.js"></script>         
+	<div class="footer hide-on-small-only">
+		<div class="container">
+			<div class="row">
+				<div class="col m4 l4">
+					<p>La Compañía</p>
+					<ul>
+						<li><a href="">Quiénes Somos</a></li>
+						<li><a href="">Prensa</a></li>
+						<li><a href="">Nuestros Inversionistas</a></li>
+						<li><a href="">Términos y Condiciones</a></li>
+					</ul>
+				</div>
+				<div class="col m4 l4">
+					<p>Síguenos en nuestras redes</p>
+					<div class="social">
+						<a href=""><span class="icon-facebook2"></span></a>
+						<a href=""><span class="icon-twitter"></span></a>
+						<a href=""><span class="icon-instagram"></span></a>
+					</div>
+				</div>
+				<div class="col m4 l4">
+					<p>Inscríbete en nuestro newsletter</p>
+					<div class="input-field inline">
+						<input id="email" type="email" class="validate">
+						<label for="email" data-error="wrong" data-success="right">Email</label>
+						<a class="waves-effect waves-light btn">Enviar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/vendor/jquery-3.1.1.min.js"></script>
+	<script src="js/vendor/materialize.min.js"></script>
+	<script src="js/vendor/jquery.validate.js"></script>
+	<script src="js/vendor/remodal/remodal.min.js"></script>
+	<script src="js/main.js"></script>
+>>>>>>> 08136ec2200ec51ae36d4971567c72d7d935b7b8
 </body>
 </html>
