@@ -23,6 +23,8 @@
   },
   "homepage": "https://github.com/andreamaucaylli/kmimos-laboratoria#readme",
   "dependencies": {
-    "express": "^4.14.0"
+    "dreamjs": "^0.1.7",
+    "express": "^4.14.0",
+    "jade": "^1.11.0"
   }
 }

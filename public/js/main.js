@@ -12,31 +12,16 @@ var template ='<div class="col s12 m4">' +
      
 $(document).ready(function(){
 
-  $.ajax({ 
-       url: "http://localhost:3000/cuidador",
-       type: "GET",
-       success: function(response){
-         console.log(response);
-           $.each(response, function (i,cuidador) {
-                console.log(cuidador);
-               var cuidadorResultado = template.replace("{{name}}", cuidador.name)
-              .replace("{{age}}", cuidador.age)
-              .replace("{{address}}", cuidador.address)
-              .replace("{{phone}}", cuidador.contact.phone)
-                $("#resultados").append(cuidadorResultado);
-            });
-        }
-    });
 
-	$(".dropdown-button").dropdown();
+  $(".dropdown-button").dropdown();
 
-	/****form****/
-	$('.datepicker').pickadate({
+  /****form****/
+  $('.datepicker').pickadate({
       selectMonths: true, // Creates a dropdown to control month
       selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   var formu = $("#myform");
-	formu.validate({
+  formu.validate({
       // Specify validation rules
       rules: {
         lugar: "required",
@@ -59,6 +44,22 @@ $(document).ready(function(){
       }
   });
   $("#btn").click(function(){
+    $.ajax({ 
+         url: "http://localhost:3000/cuidador",
+         type: "GET",
+         success: function(response){
+           console.log(response);
+             $.each(response, function (i,cuidador) {
+                  console.log(cuidador);
+                 var cuidadorResultado = template.replace("{{name}}", cuidador.name)
+                .replace("{{age}}", cuidador.age)
+                .replace("{{address}}", cuidador.address)
+                .replace("{{phone}}", cuidador.contact.phone)
+                  $("#resultados").append(cuidadorResultado);
+              });
+          }
+      });
+    
       formu.validate();
   });
     /****form****/
