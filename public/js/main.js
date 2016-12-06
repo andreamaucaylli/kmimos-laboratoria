@@ -1,4 +1,4 @@
-var template ='<div class="col s12 m4">' +
+var template ='<div class="col s12 m12">' +
                 '<div class="card horizontal hoverable">' +
                     '<div class="card-stacked">' +
                         '<div class="card-content teal lighten-2 white-text">' +
@@ -11,50 +11,28 @@ var template ='<div class="col s12 m4">' +
                         '</div>' +
                      '</div>' +
                 '</div>' +
-            '</div>'; 
-     
+            '</div>';
 
 $(document).ready(function(){
-  $(".dropdown-button").dropdown();
+  $("#icon_prefix").keyup(validarForm);
 
-  $(".datepicker").pickadate({
-      selectMonths: true,
-      selectYears: 15
-  });
-  var formu = $("#myform");
-
-  formu.validate({
-    rules: {
-      lugar: "required",
-      fecha: "required",
-    },
-
-    messages: {
-      lugar: "Ingrese un lugar",
-      fecha: "Eliga una fecha",
-    },
-
-    errorElement : 'div',
-    errorPlacement: function(error, element) {
-      var placement = $(element).data("error");
-        if (placement) {
-          $(placement).append(error)
-        } else {
-        error.insertAfter(element);
-        }
-      }
-    });
+  function validarForm () {
+  var distritoInput = $(this).val();
+  var valor = true;
+  var regexDistrito = /^[a-zñáéíóúü]+$/gi;
+    if (!regexDistrito.test(distritoInput)) {
+      valor = false;
+    }
+}
 
   $("#btn").click(function(e){
     e.preventDefault();
-
-    formu.validate();
     var maxImages = 9;
     var distritoIngresado = $('#icon_prefix').val();
-    $("#myform").val(""); 
+
     $.when(
       $.ajax({ 
-        url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
+        url: "/cuidadores?lugar="+distritoIngresado,
         type: "GET"
       }), 
       $.ajax({
@@ -75,6 +53,6 @@ $(document).ready(function(){
           $("#resultados").append(cuidadorResultado);
         });
     });   
-  
+    $('#icon_prefix').val('');    
   });
-});
+};
