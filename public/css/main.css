@@ -3,7 +3,9 @@
 	width: 100%;
 }
 /************/
-
+.ingresa{
+	padding: 0 !important;
+	}
 .fondo{
 	background-image: url("../img/wallpaper2.jpg");
 	background-size: cover;
