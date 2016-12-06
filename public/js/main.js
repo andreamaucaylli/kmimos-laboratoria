@@ -12,7 +12,6 @@ var template ='<div class="col s12 m4">' +
      
 $(document).ready(function(){
 
-
   $(".dropdown-button").dropdown();
 
   /****form****/
@@ -21,28 +20,28 @@ $(document).ready(function(){
       selectYears: 15 // Creates a dropdown of 15 years to control year
   });
   var formu = $("#myform");
-  formu.validate({
-      // Specify validation rules
-      rules: {
-        lugar: "required",
-        fecha: "required",
-      },
+    formu.validate({
+        // Specify validation rules
+        rules: {
+          lugar: "required",
+          fecha: "required",
+        },
 
-      messages: {
-        lugar: "Ingrese un lugar",
-        fecha: "Eliga una fecha",
-      },
+        messages: {
+          lugar: "Ingrese un lugar",
+          fecha: "Eliga una fecha",
+        },
 
-      errorElement : 'div',
-      errorPlacement: function(error, element) {
-        var placement = $(element).data("error");
-        if (placement) {
-          $(placement).append(error)
-        } else {
-          error.insertAfter(element);
+        errorElement : 'div',
+        errorPlacement: function(error, element) {
+          var placement = $(element).data("error");
+          if (placement) {
+            $(placement).append(error)
+          } else {
+            error.insertAfter(element);
+          }
         }
-      }
-  });
+    });
   $("#btn").click(function(){
     $.ajax({ 
          url: "http://localhost:3000/cuidador",
