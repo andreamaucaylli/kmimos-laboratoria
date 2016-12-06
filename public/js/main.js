@@ -1,12 +1,14 @@
 var template ='<div class="col s12 m4">' +
                 '<div class="card horizontal hoverable">' +
                     '<div class="card-stacked">' +
-                        '<div class="card-content amber white-text">' +
-                            '<p>Hi, my name is <strong>{{name}}</strong></p>' +
-                            '<p>and i have {{age}} years old</p>'+
-                            '<p>i live in {{address}} my phone number is  {{phone}}</p>'+
+                        '<div class="card-content teal lighten-2 white-text">' +
+                            '<p>Nombre: <strong>{{name}}</strong></p>' +
+                            '<p>Edad: {{age}} </p>'+
+                            '<p>Dirección: {{address}}</p>'+
+                            '<p>Telefóno:{{phone}}</p>'+
+                            '<img src="{{image}}" id="image">'+
                         '</div>' +
-                    '</div>' +
+                     '</div>' +
                 '</div>' +
             '</div>'; 
      
@@ -44,21 +46,29 @@ $(document).ready(function(){
       }
   });
   $("#btn").click(function(){
-    $.ajax({ 
-         url: "http://localhost:3000/cuidador",
-         type: "GET",
-         success: function(response){
-           console.log(response);
-             $.each(response, function (i,cuidador) {
-                  console.log(cuidador);
-                 var cuidadorResultado = template.replace("{{name}}", cuidador.name)
-                .replace("{{age}}", cuidador.age)
-                .replace("{{address}}", cuidador.address)
-                .replace("{{phone}}", cuidador.contact.phone)
-                  $("#resultados").append(cuidadorResultado);
-              });
-          }
-      });
+    $.when(
+        $.ajax({ 
+           url: "http://localhost:3000/cuidador",
+           type: "GET"
+        }), 
+        $.ajax({
+          url: 'https://randomuser.me/api?inc=picture&results=99',
+          dataType: 'json',
+          type: "GET"
+        })
+    ).then(function(cuidadores,data){
+        console.log(cuidadores);
+        console.log(data);
+        $.each(cuidadores[0], function (i,cuidador) {
+               var cuidadorResultado = template.replace("{{name}}", cuidador.name)
+              .replace("{{age}}", cuidador.age)
+              .replace("{{address}}", cuidador.address)
+              .replace("{{phone}}", cuidador.contact.phone)
+              .replace("{{image}}", data[0].results[i].picture.medium);
+           /* $("#image").attr("src", "https://source.unsplash.com/user/{USERNAME}/likes");*/
+            $("#resultados").append(cuidadorResultado);
+        });
+    });
     
       formu.validate();
   });
