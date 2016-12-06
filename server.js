@@ -20,7 +20,7 @@ var cuidador = dream
     pi: 'pi',
     hello: 'hello'
   })
-  .generateRnd(100)
+  .generateRnd(99)
   .output();
   
 app.get('/cuidador', function (req, res) {
