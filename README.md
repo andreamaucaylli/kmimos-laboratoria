@@ -23,7 +23,7 @@ Personas con mascotas que viajen mucho.
 El trabajo de la web se trabajo por medio de varias prácticas (pair programming, product backlog) de metologías y frameworks ágiles (Scrum y Kanban).
 
 ![Slack](http://i68.tinypic.com/10dwolf.png)
-![Trello](http://i67.tinypic.com/fbkpbl.png)
+![Trello](http://i67.tinypic.com/350jdqq.png)
 
 **WORKFLOW**
 
