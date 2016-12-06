@@ -7,13 +7,25 @@ dream.customType('pi', function () {
   return Math.PI;
 });
 
-dream.customType('distrito', function (helper) {
-  var distrito = ['Lima', 'Ate', 'Barranco', 'Breña', 'Comas', 'Chorrillos', 'El Agustino', 'Jesús María', 
+ var distritos = ['Lima', 'Ate', 'Barranco', 'Breña', 'Comas', 'Chorrillos', 'El Agustino', 'Jesús María', 
   'La Molina', 'La Victoria', 'Lince', 'Magdalena del Mar', 'Miraflores', 'Pueblo Libre', 'Puente Piedra',
   'Rimac', 'San Isidro', 'Independencia', 'San Juan de Miraflores', 'San Luis', 'San Martin de Porres', 'San Miguel',
   'Santiago de Surco', 'Surquillo', 'Villa María del Triunfo', 'San Juan de Lurigancho', 'Santa Rosa', 'Los Olivos',
   'San Borja', 'Villa El Savador', 'Santa Anita', 'Callao', 'Bellavista', 'Carmen de la Legua', 'La Perla', 'La Punta', 'Ventanilla'];
-  return helper.oneOf(distrito);
+
+dream.customType('distrito', function (helper) {
+  return helper.oneOf(distritos);
+});
+
+var genero = ['women', 'men'];
+
+var numero = [];
+for (var i = 0; i <= 99; i++) {
+    numero.push(i);
+}
+
+dream.customType('imagen', function(helper){
+  return 'https://randomuser.me/api/portraits/med/' + helper.oneOf(genero) + '/' + helper.oneOf(numero) + '.jpg' ;
 });
 
 var cuidadores = dream
@@ -21,6 +33,7 @@ var cuidadores = dream
     name: 'name',
     age: 'age',
     distrito: 'distrito',
+    imagen: 'imagen',
     address: 'address',
     contact: {
       phone: 'phone',
