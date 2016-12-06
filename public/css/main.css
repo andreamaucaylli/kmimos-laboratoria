@@ -1,9 +1,3 @@
-/***general***/
-*{
-	box-sizing: border-box;
-	padding: 0px;
-	margin: 0px;
-}
 /****form****/
 .waves-effect {
 	width: 100%;
@@ -12,8 +6,13 @@
 
 .fondo{
 	background-image: url("../img/wallpaper2.jpg");
-	height: 81vh;
 	background-size: cover;
+	background-repeat: no-repeat;
+	padding: 2vh 0vh;
+}
+
+.login{
+	padding-top: 6vh;
 }
 
 .fondo h2, .fondo h5{
@@ -25,7 +24,6 @@
 }
 .footer{
 	background-color: #637988;
-	height: 30vh;
 	color: #fff;
 	padding: 2vh 0vh;
 }
