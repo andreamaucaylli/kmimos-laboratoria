@@ -31,7 +31,7 @@ $(document).ready(function(){
     var distritoIngresado = $('#icon_prefix').val();  
 
     $.ajax({ 
-      url: "https://localhost:3000/cuidadores?lugar="+distritoIngresado,
+      url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
       type: "GET",
       success: function(cuidadores){
         $.each(cuidadores, function (i,cuidador) {
