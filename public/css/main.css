@@ -7,11 +7,22 @@ body{
 	font-family: Roboto;
 }
 .fondo{
-	background-image: url("../img/wallpaper2.jpg");
+	background-image: url("../img/fondo.png");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 2vh 0vh;
 	height: 83vh;
+}
+
+.nav-wrapper a img{
+	width: 100px;
+}
+
+.nav-wrapper{
+	background-color: #FFF;
+}
+.nav-wrapper a{
+	color: #26a69a;
 }
 
 .login{
@@ -21,14 +32,16 @@ body{
 .login a{
 	font-size: 1.3rem;
 }
-.fondo h2, .fondo h5{
+.fondo h5, .fondo h3{
 	color: #fff;
 }
 .cajatexto{
-	padding: 2vh;
-	background-color: rgba(0, 0, 0, 0.36);
+	padding: 22vh 0vh;
 }
 
+.formulario{
+	padding: 25vh 0vh;
+}
 .row{
 	margin-bottom: 0px;
 }
@@ -60,4 +73,42 @@ body{
 
 div.remodal-overlay{
 	background-color: rgba(22, 76, 63, 0.91);
+}
+
+#video{
+	padding: 6vh 0vh;
+	background-color: #F7F7F7;
+}
+
+#video p, .info-titulo span{
+	color: #435C70;
+	font-size: 1.4rem;
+}
+
+#info{
+	padding-top: 2vh;
+}
+
+.info-titulo p{
+	color: #62D1B7;
+	font-size: 1.4rem;
+}
+
+.escudo img{
+	padding-top: 15vh;
+}
+
+.servicios{
+	padding: 6vh 0vh 8vh 0vh;
+	color: #435C70; 
+}
+
+.servicios img{
+	width: 70px;
+	padding-top: 4vh;
+}
+@media only screen and (min-width : 1170px) {
+	.fondo{
+		background-position-y: -25vh;
+	}
 }
