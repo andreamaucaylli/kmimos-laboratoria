@@ -81,12 +81,12 @@ div.remodal-overlay{
 	background-color: rgba(22, 76, 63, 0.91);
 }
 
-#video{
+#video, .cuidador-mes{
 	padding: 6vh 0vh;
 	background-color: #F7F7F7;
 }
 
-#video p, .info-titulo span{
+#video p, .info-titulo span, .cuidador-mes span{
 	color: #435C70;
 	font-size: 1.4rem;
 }
@@ -95,7 +95,7 @@ div.remodal-overlay{
 	padding-top: 2vh;
 }
 
-.info-titulo p{
+.info-titulo p, .cuidador-mes p{
 	color: #62D1B7;
 	font-size: 1.4rem;
 }
@@ -113,6 +113,17 @@ div.remodal-overlay{
 	width: 70px;
 	padding-top: 4vh;
 }
+.cuidador-mes .fotos img{
+	width: 300px;
+}
+
+.fotos{
+	padding-top: 4vh;
+}
+.fotos i{
+	color: #62D1B7;
+}
+
 @media only screen and (min-width : 1170px) {
 	.fondo{
 		background-position-y: -25vh;
