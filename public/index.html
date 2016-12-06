@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-signin-client_id" content="221204903659-m491ccs01bplvka0r81soe1jfum3f0vj.apps.googleusercontent.com">
 	<title>Kmimos</title>
 	<link rel="stylesheet" href="css/vendor/materialize.min.css">
 	<link rel="stylesheet" href="css/main.css">
@@ -32,25 +33,75 @@
 	<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
 		<button data-remodal-action="close" class="remodal-close"></button>
 		<h3>INGRESA</h3>
-		<div id="fb-root"></div>
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
-    <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '1602684570041328',
-          xfbml      : true,
-          version    : 'v2.8'
-        });
-      };
+		<div class="row">
+			<div class="button-fb col s12 m6 l6">
+				<div id="fb-root"></div>
+		    	<div class="fb-login-button" data-max-rows="1" data-size="large" data-show-faces="true" data-auto-logout-link="true"></div>
+			</div>
+			<div class="button-gm col s12m6 l6">
+			    <!-- HTML for render Google Sign-In button -->
+				<div id="gSignIn"></div>
+				<!-- HTML for displaying user details -->
+				<div class="userContent"></div>
+			</div>
+		</div>
+	    <script>
+	    	function onSuccess(googleUser) {
+			    var profile = googleUser.getBasicProfile();
+			    gapi.client.load('plus', 'v1', function () {
+			        var request = gapi.client.plus.people.get({
+			            'userId': 'me'
+			        });
+			        //Display the user details
+			        request.execute(function (resp) {
+			            var profileHTML = '<div class="profile"><div class="head">Welcome '+resp.name.givenName+'! <a href="javascript:void(0);" onclick="signOut();">Sign out</a></div>';
+			            profileHTML += '<img src="'+resp.image.url+'"/><div class="proDetails"><p>'+resp.displayName+'</p><p>'+resp.emails[0].value+'</p></div></div>';
+			            $('.userContent').html(profileHTML);
+			            $('#gSignIn').slideUp('slow');
+			        });
+			    });
+			}
+			function onFailure(error) {
+			    alert(error);
+			}
+			function renderButton() {
+			    gapi.signin2.render('gSignIn', {
+			        'scope': 'profile email',
+			        'width': 240,
+			        'height': 50,
+			        'longtitle': true,
+			        'theme': 'dark',
+			        'onsuccess': onSuccess,
+			        'onfailure': onFailure
+			    });
+			}
+			function signOut() {
+			    var auth2 = gapi.auth2.getAuthInstance();
+			    auth2.signOut().then(function () {
+			        $('.userContent').html('');
+			        $('#gSignIn').slideDown('slow');
+			    });
+			}
+			// Gmail api fin
 
-      (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-    </script>
+			// Facebook api
+		    window.fbAsyncInit = function() {
+		        FB.init({
+		          appId      : '1602684570041328',
+		          xfbml      : true,
+		          version    : 'v2.8'
+		        });
+		    };
+
+	      (function(d, s, id){
+	         var js, fjs = d.getElementsByTagName(s)[0];
+	         if (d.getElementById(id)) {return;}
+	         js = d.createElement(s); js.id = id;
+	         js.src = "//connect.facebook.net/en_US/sdk.js";
+	         fjs.parentNode.insertBefore(js, fjs);
+	       }(document, 'script', 'facebook-jssdk'));
+	      // Facebook api fin
+	    </script>
 	</div>
 	<!-- REMODAL LOGIN -->
 	<div class="fondo">
@@ -130,6 +181,7 @@
 		</div>
 	</div>
 	<script src="js/vendor/jquery-3.1.1.min.js"></script>
+	<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
 	<script src="js/vendor/materialize.min.js"></script>
 	<script src="js/vendor/jquery.validate.js"></script>
 	<script src="js/vendor/remodal/remodal.min.js"></script>
