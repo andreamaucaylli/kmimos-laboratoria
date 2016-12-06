@@ -30,6 +30,7 @@ $(document).ready(function(){
     var maxImages = 9;
     var distritoIngresado = $('#icon_prefix').val();  
 
+<<<<<<< HEAD
     $.ajax({ 
       url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
       type: "GET",
@@ -45,5 +46,31 @@ $(document).ready(function(){
           });
         }
     });  
+=======
+    $.when(
+      $.ajax({ 
+        url: "https://localhost:3000/cuidadores?lugar="+distritoIngresado,
+        type: "GET"
+      }), 
+      $.ajax({
+        url: 'https://randomuser.me/api?inc=picture&results=' + maxImages,
+        dataType: 'json',
+        type: "GET"
+      })
+    ).then(function(cuidadores,data){
+      console.log(cuidadores);
+      console.log(data);
+      $.each(cuidadores[0], function (i,cuidador) {
+        var cuidadorResultado = template.replace("{{name}}", cuidador.name)
+          .replace("{{age}}", cuidador.age)
+          .replace("{{address}}", cuidador.address)
+          .replace("{{distrito}}", cuidador.distrito)
+          .replace("{{phone}}", cuidador.contact.phone)
+          .replace("{{image}}", data[0].results[i % maxImages].picture.medium);
+          $("#resultados").append(cuidadorResultado);
+        });
+    });
+    $('#icon_prefix').val('');    
+>>>>>>> 7b8161cf877ca3016a6cacab39bff906ba104cb4
   });
 });

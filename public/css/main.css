@@ -3,9 +3,15 @@
 	width: 100%;
 }
 /************/
+
+.ingresa{
+	padding: 0 !important;
+}
+
 body{
 	font-family: Roboto;
 }
+
 .fondo{
 	background-image: url("../img/fondo.png");
 	background-size: cover;
