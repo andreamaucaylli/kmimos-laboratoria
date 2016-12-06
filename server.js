@@ -48,7 +48,8 @@ app.get('/cuidadores', function (req, res) {
   	res.send(cuidadoresFiltrados);
 })
 
+app.set("port", process.env.PORT || 3000);
 app.use(express.static(__dirname + "/public"));
-app.listen(3000,function(){
-    console.log("Servidor encedido!!");
+app.listen(app.get("port"), function(){
+    console.log("Servidor encendido!!");
 });
