@@ -33,7 +33,7 @@ var cuidadores = dream
     hello: 'hello'
   })
 
-  .generateRnd(9)
+  .generateRnd(100)
   .output();
   
 app.get('/cuidadores', function (req, res) {

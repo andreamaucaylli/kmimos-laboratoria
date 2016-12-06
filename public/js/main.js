@@ -5,14 +5,14 @@ var template ='<div class="col s12 m4">' +
                             '<p>Nombre: <strong>{{name}}</strong></p>' +
                             '<p>Edad: {{age}} </p>'+
                             '<p>Dirección: {{address}}</p>'+
-                            '<p>Telefóno:{{phone}}</p>'+
+                            '<p>Distrito: {{distrito}}</p>'+
+                            '<p>Teléfono: {{phone}}</p>'+
                             '<img src="{{image}}" id="image">'+
                         '</div>' +
                      '</div>' +
                 '</div>' +
             '</div>'; 
      
-var distritoIngresado = $('#icon_prefix').val();
 
 $(document).ready(function(){
   $(".dropdown-button").dropdown();
@@ -49,6 +49,8 @@ $(document).ready(function(){
     e.preventDefault();
 
     formu.validate();
+    var maxImages = 9;
+    var distritoIngresado = $('#icon_prefix').val();
 
     $.when(
       $.ajax({ 
@@ -56,7 +58,7 @@ $(document).ready(function(){
         type: "GET"
       }), 
       $.ajax({
-        url: 'https://randomuser.me/api?inc=picture&results=9',
+        url: 'https://randomuser.me/api?inc=picture&results=' + maxImages,
         dataType: 'json',
         type: "GET"
       })
@@ -67,8 +69,9 @@ $(document).ready(function(){
         var cuidadorResultado = template.replace("{{name}}", cuidador.name)
           .replace("{{age}}", cuidador.age)
           .replace("{{address}}", cuidador.address)
+          .replace("{{distrito}}", cuidador.distrito)
           .replace("{{phone}}", cuidador.contact.phone)
-          .replace("{{image}}", data[0].results[i].picture.medium);
+          .replace("{{image}}", data[0].results[i % maxImages].picture.medium);
           $("#resultados").append(cuidadorResultado);
         });
     });    
