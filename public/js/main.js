@@ -51,7 +51,7 @@ $(document).ready(function(){
     formu.validate();
     var maxImages = 9;
     var distritoIngresado = $('#icon_prefix').val();
-
+    $("#myform").val(""); 
     $.when(
       $.ajax({ 
         url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
@@ -74,6 +74,7 @@ $(document).ready(function(){
           .replace("{{image}}", data[0].results[i % maxImages].picture.medium);
           $("#resultados").append(cuidadorResultado);
         });
-    });    
+    });   
+  
   });
 });

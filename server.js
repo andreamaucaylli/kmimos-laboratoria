@@ -14,6 +14,8 @@ dream.customType('distrito', function (helper) {
   'Santiago de Surco', 'Surquillo', 'Villa María del Triunfo', 'San Juan de Lurigancho', 'Santa Rosa', 'Los Olivos',
   'San Borja', 'Villa El Savador', 'Santa Anita', 'Callao', 'Bellavista', 'Carmen de la Legua', 'La Perla', 'La Punta', 'Ventanilla'];
   return helper.oneOf(distrito);
+
+  var latitud= ['']
 });
 
 var cuidadores = dream
