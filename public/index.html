@@ -3,6 +3,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
+	<link rel="icon" href="img/favicon.ico.png" type="image/x-icon"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="google-signin-client_id" content="221204903659-m491ccs01bplvka0r81soe1jfum3f0vj.apps.googleusercontent.com">
 	<title>Kmimos</title>
@@ -12,25 +13,19 @@
 	<link rel="stylesheet" href="css/vendor/icomoon.css">
 	<link rel="stylesheet" href="css/vendor/remodal/remodal.css">
 	<link rel="stylesheet" href="css/vendor/remodal/remodal-default-theme.css">
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-	
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">	
 </head>
 <body>
-	<div class="header">
-		<div class="container">
-			<div class="row">
-				<div class="col s6 m9 l9">
-					<img src="img/kmimos-logo.png" alt="">
-				</div>
-				<div class="col s6 m3 l3">
-					<div class="login right-align">	
-						<a class="waves-effect waves-light btn" data-remodal-target="modal">Ingresa</a>
-					</div>
-				</div>
+	<nav>
+		<div class="nav-wrapper">
+			<div class="container">
+				<a href="#" class="brand-logo"><img src="img/kmimos-logo.png" class="responsive-img"></a>
+				<ul id="nav-mobile" class="right">
+		  			<li><a data-remodal-target="modal">Ingresa</a></li>
+		  		</ul>
 			</div>
 		</div>
-	</div>
+	</nav>
  	<!-- REMODAL LOGIN -->
 	<div class="remodal" data-remodal-id="modal" data-remodal-options="hashTracking: false, closeOnOutsideClick: true">
 		<button data-remodal-action="close" class="remodal-close"></button>
@@ -109,34 +104,36 @@
 	<div class="fondo">
 		<div class="container">
 			<div class="row">	
-				<div class="col l8">
+				<div class="col l7">
 					<div class="cajatexto hide-on-small-only">
-						<h2>VIAJA SIN PREOCUPACIONES</h2>
+						<h3>VIAJA SIN PREOCUPACIONES</h3>
 						<h5>Deja a tu mascota con un cuidador de confianza que la atenderá como si fuera parte de su familia.</h5>
 					</div>
 				</div>
 				<!--FORM-->
-				<div class="col s12 l4">
-					<div class="card-panel">
-						<form id="myform">
-							<div class="row">
-								<div class="input-field col s12">
-									<i class="material-icons prefix">location_on</i>
-									<input placeholder="Ingresa el distrito" id="icon_prefix" type="text" class="validate distInp" name="lugar">
-									<label for="icon_prefix">Ubicación</label>
+				<div class="col s12 l5">
+					<div class="formulario">
+						<div class="card-panel">
+							<form id="myform">
+								<div class="row">
+									<div class="input-field col s12">
+										<i class="material-icons prefix">location_on</i>
+										<input placeholder="Ingresa el distrito" id="icon_prefix" type="text" class="validate distInp" name="lugar">
+										<label for="icon_prefix">Ubicación</label>
+									</div>
 								</div>
-							</div>
-							<button class="btn waves-effect waves-light" id="btn">Buscar
-								<i class="material-icons right">send</i>
-							</button>
-						</form>
+								<button class="btn waves-effect waves-light" id="btn">Buscar
+									<i class="material-icons right">send</i>
+								</button>
+							</form>
+						</div>
 					</div>
 				</div>
 				<!--form-->
 			</div>
 		</div>
-	</div>
-	<section>
+	</div>	
+	<section class="results">
 		<div class="container">
 			<div class="row">
 				<div class="col s12 m6">
@@ -144,6 +141,92 @@
 				</div>
 				<div class="col s12 m6">
 					<div id="resultados" class="row"></div>
+				</div>
+			</div>
+		</div>
+	</section>
+    <section id="video" class="center-align hide-on-small-only">
+    	<p>CONOCE CÓMO FUNCIONA LA EXPERIENCIA KMIMOS</p>
+    	<iframe width="560" height="315" src="https://www.youtube.com/embed/_08UJ0aYDCk" frameborder="0" allowfullscreen></iframe>
+    </section>    
+	<div class="barra hide-on-small-only">
+		<img src="img/barra.png" class="responsive-img">
+	</div>
+	<section id="info" class="hide-on-small-only">
+		<div class="container">
+			<div class="info-titulo center-align">
+				<p>KMIMOS, TRANQUILIDAD GARANTIZADA</p>
+				<span>Pensamos en todo lo que necesitas para viajar sin preocupaciones.</span>
+			</div>
+			<div class="row">
+				<div class="col m6 l6 center-align escudo">
+					<img src="img/icono-garantizado.png" class="">
+				</div>
+				<div class="col m6 l6">
+					<div class="servicios">
+						<div class="row">
+							<div class="col m3 l3">
+								<img src="img/beneficios-cuidadores-especializados.svg" alt="">
+							</div>
+							<div class="col m9 l9">
+								<p>CUIDADORES CERTIFICADOS</p>
+								<span>Nuestros cuidadores asociados pasan por un riguroso proceso de certificación.</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col m3 l3">
+								<img src="img/beneficios-seguro-salud.svg" alt="">
+							</div>
+							<div class="col m9 l9">
+								<p>COBERTURA VETERINARIA</p>
+								<span>Nuestros cuidadores asociados pasan por un riguroso proceso de certificación.</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col m3 l3">
+								<img src="img/beneficios-atencion24_7.svg" alt="">
+							</div>
+							<div class="col m9 l9">
+								<p>ATENCION PERSONALIZADA</p>
+								<span>Nuestros cuidadores asociados pasan por un riguroso proceso de certificación.</span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col m3 l3">
+								<img src="img/beneficios-fotos.svg" alt="">
+							</div>
+							<div class="col m9 l9">
+								<p>FOTOS Y VIDEOS DIARIOS</p>
+								<span>Nuestros cuidadores asociados pasan por un riguroso proceso de certificación.</span>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="cuidador-mes center-align hide-on-small-only">
+		<div class="container">
+			<img src="img/servicios-cuidadores-especializados.svg" alt="">
+			<p>CUIDADORES DEL MES</p>
+			<span>Conoce a los amantes de macotas más recomendados del mes</span>
+			<div class="row">
+				<div class="fotos">
+					<div class="col m4 l4">
+						<img src="img/cuida1.png" alt="">
+						<span>Andrea Cabrera</span> <br>
+						<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i> <h6>4 reviews</h6>
+					</div>
+					<div class="col m4 l4">
+						<img src="img/cuida2.png" alt="">
+						<span>Jennifer Jara</span> <br>
+						<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star_border</i> <h6>5 reviews</h6>
+					</div>
+					<div class="col m4 l4">
+						<img src="img/cuida3.png" alt="">
+						<span>Andrea Maucaylli</span> <br>
+						<i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i> <h6>4 reviews</h6>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -171,8 +254,8 @@
                 </fieldset>
             </form>
         </div>
-    </div> 
-	<div class="footer hide-on-small-only">
+    </div> 	
+    <div class="footer hide-on-small-only">
 		<div class="container">
 			<div class="row">
 				<div class="col m4 l4">
@@ -203,7 +286,6 @@
 			</div>
 		</div>
 	</div>
-
 	<script src="js/vendor/jquery-3.1.1.min.js"></script>
 	<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5rRnVablF5j-hVnTp1-d6gz9Zu6_Y-Zk&libraries=places" async defer></script>
