@@ -2,13 +2,25 @@ var express = require("express");
 var app = express();
 var dream = require('dreamjs');
 
+
 dream.customType('pi', function () {
   return Math.PI;
 });
-var cuidador = dream
+
+dream.customType('distrito', function (helper) {
+  var distrito = ['Lima', 'Ate', 'Barranco', 'Breña', 'Comas', 'Chorrillos', 'El Agustino', 'Jesús María', 
+  'La Molina', 'La Victoria', 'Lince', 'Magdalena del Mar', 'Miraflores', 'Pueblo Libre', 'Puente Piedra',
+  'Rimac', 'San Isidro', 'Independencia', 'San Juan de Miraflores', 'San Luis', 'San Martin de Porres', 'San Miguel',
+  'Santiago de Surco', 'Surquillo', 'Villa María del Triunfo', 'San Juan de Lurigancho', 'Santa Rosa', 'Los Olivos',
+  'San Borja', 'Villa El Savador', 'Santa Anita', 'Callao', 'Bellavista', 'Carmen de la Legua', 'La Perla', 'La Punta', 'Ventanilla'];
+  return helper.oneOf(distrito);
+});
+
+var cuidadores = dream
   .schema({
     name: 'name',
     age: 'age',
+    distrito: 'distrito',
     address: 'address',
     contact: {
       phone: 'phone',
@@ -20,12 +32,22 @@ var cuidador = dream
     pi: 'pi',
     hello: 'hello'
   })
-  .generateRnd(100)
+
+  .generateRnd(9)
   .output();
   
-app.get('/cuidador', function (req, res) {
-  res.send(cuidador);
+app.get('/cuidadores', function (req, res) {
+	var lugar = req.query.lugar;
+	var cuidadoresFiltrados = [];
+	for (var i = 0; i < cuidadores.length; i++) {
+		var cuidador = cuidadores[i];
+		if (cuidador.distrito == lugar) {
+			cuidadoresFiltrados.push(cuidador);
+		}		
+	}
+  	res.send(cuidadoresFiltrados);
 })
+
 app.use(express.static(__dirname + "/public"));
 app.listen(3000,function(){
     console.log("Servidor encedido!!");
