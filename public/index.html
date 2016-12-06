@@ -8,11 +8,14 @@
 	<meta name="google-signin-client_id" content="221204903659-m491ccs01bplvka0r81soe1jfum3f0vj.apps.googleusercontent.com">
 	<title>Kmimos</title>
 	<link rel="stylesheet" href="css/vendor/materialize.min.css">
+	<link rel="stylesheet" href="css/mapa.css">
 	<link rel="stylesheet" href="css/main.css">
 	<link rel="stylesheet" href="css/vendor/icomoon.css">
 	<link rel="stylesheet" href="css/vendor/remodal/remodal.css">
 	<link rel="stylesheet" href="css/vendor/remodal/remodal-default-theme.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	
 </head>
 <body>
 	<nav>
@@ -128,19 +131,22 @@
 						</div>
 					</div>
 				</div>
-				
 				<!--form-->
 			</div>
 		</div>
-	</div>
-
-<!-- 		<div class="row">
-			<div class="col s12 m6 l6">
-				<div id="resultados" class="row"></div>
+	</div>	
+	<section class="results">
+		<div class="container">
+			<div class="row">
+				<div class="col s12 m6">
+					<div id="map"></div>
+				</div>
+				<div class="col s12 m6">
+					<div id="resultados" class="row"></div>
+				</div>
 			</div>
-			<div class="col s12 m6 l6"></div>
-		</div> -->
-
+		</div>
+	</section>
     <section id="video" class="center-align hide-on-small-only">
     	<p>CONOCE CÓMO FUNCIONA LA EXPERIENCIA KMIMOS</p>
     	<iframe width="560" height="315" src="https://www.youtube.com/embed/_08UJ0aYDCk" frameborder="0" allowfullscreen></iframe>
@@ -227,6 +233,7 @@
 			</div>
 		</div>
 	</section>
+
 	<div class="footer hide-on-small-only">
 		<div class="container">
 			<div class="row">
@@ -260,6 +267,7 @@
 	</div>
 	<script src="js/vendor/jquery-3.1.1.min.js"></script>
 	<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5rRnVablF5j-hVnTp1-d6gz9Zu6_Y-Zk&libraries=places" async defer></script>
 	<script src="js/vendor/materialize.min.js"></script>
 	<script src="js/vendor/remodal/remodal.min.js"></script>
 	<script src="js/main.js"></script>

@@ -13,64 +13,95 @@ var template ='<div class="col s12 m12">' +
                 '</div>' +
             '</div>';
 
-$(document).ready(function(){
-  $("#icon_prefix").keyup(validarForm);
+    var map;
+    var infowindow;
+    var largo;
 
-  function validarForm () {
-  var distritoInput = $(this).val();
-  var valor = true;
-  var regexDistrito = /^[a-zñáéíóúü]+$/gi;
-    if (!regexDistrito.test(distritoInput)) {
-      valor = false;
+    function initMap() {
+      var pyrmont = {lat: -33.867, lng: 151.195};
+      map = new google.maps.Map(document.getElementById('map'), {
+        center: pyrmont,
+        zoom: 15
+      });
+
+      infowindow = new google.maps.InfoWindow();
+
+      var service = new google.maps.places.PlacesService(map);
+      service.nearbySearch({
+        location: pyrmont,
+        radius: 30
+      }, callback);
     }
-}
 
-  $("#btn").click(function(e){
-    e.preventDefault();
-    var maxImages = 9;
-    var distritoIngresado = $('#icon_prefix').val();  
+    function callback(results, status, largo) {
+      if (status === google.maps.places.PlacesServiceStatus.OK) {
+        for (var i = 0; i < largo; i++) {
+          console.log(largo);
+          createMarker(largo[i]);
+        }
+      }
+    }
 
-<<<<<<< HEAD
-    $.ajax({ 
-      url: "http://localhost:3000/cuidadores?lugar="+distritoIngresado,
-      type: "GET",
-      success: function(cuidadores){
-        $.each(cuidadores, function (i,cuidador) {
+    function createMarker(place) {
+      var placeLoc = place.geometry.location;
+      var marker = new google.maps.Marker({
+        map: map,
+        position: place.geometry.location
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        infowindow.setContent(place.name);
+        infowindow.open(map, this);
+      });
+    }
+            
+$(document).ready(function(){
+
+  $("#map").hide();
+  $("#icon_prefix").keyup(validarForm);
+    function validarForm () {
+      var distritoInput = $(this).val();
+      var valor = true;
+      var regexDistrito = /^[a-zñáéíóúü]+$/gi;
+        if (!regexDistrito.test(distritoInput)) {
+          valor = false;
+        }
+    }
+
+    var sigt = function(e){
+      e.preventDefault();
+      initMap();
+      var maxImages = 9;
+      var distritoIngresado = $('#icon_prefix').val();  
+      $.when(
+        $.ajax({ 
+          url: "/cuidadores?lugar="+distritoIngresado,
+          type: "GET"
+        }), 
+        $.ajax({
+          url: 'https://randomuser.me/api?inc=picture&results=' + maxImages,
+          dataType: 'json',
+          type: "GET"
+        })
+      ).then(function(cuidadores,data){
+        $.each(cuidadores[0], function (i,cuidador) {
+          largo = cuidadores[0].length;
+          console.log(largo);
+          initMap();
           var cuidadorResultado = template.replace("{{name}}", cuidador.name)
             .replace("{{age}}", cuidador.age)
             .replace("{{address}}", cuidador.address)
             .replace("{{distrito}}", cuidador.distrito)
             .replace("{{phone}}", cuidador.contact.phone)
-            .replace("{{image}}", cuidador.imagen);
+            .replace("{{image}}", data[0].results[i % maxImages].picture.medium);
             $("#resultados").append(cuidadorResultado);
-          });
-        }
-    });  
-=======
-    $.when(
-      $.ajax({ 
-        url: "/cuidadores?lugar="+distritoIngresado,
-        type: "GET"
-      }), 
-      $.ajax({
-        url: 'https://randomuser.me/api?inc=picture&results=' + maxImages,
-        dataType: 'json',
-        type: "GET"
-      })
-    ).then(function(cuidadores,data){
-      console.log(cuidadores);
-      console.log(data);
-      $.each(cuidadores[0], function (i,cuidador) {
-        var cuidadorResultado = template.replace("{{name}}", cuidador.name)
-          .replace("{{age}}", cuidador.age)
-          .replace("{{address}}", cuidador.address)
-          .replace("{{distrito}}", cuidador.distrito)
-          .replace("{{phone}}", cuidador.contact.phone)
-          .replace("{{image}}", data[0].results[i % maxImages].picture.medium);
-          $("#resultados").append(cuidadorResultado);
         });
-    });
-    $('#icon_prefix').val('');    
->>>>>>> 7b8161cf877ca3016a6cacab39bff906ba104cb4
-  });
+      });
+
+      $("#map").show();
+      $('#icon_prefix').val('');
+
+    };
+
+    $("#btn").click(sigt);
 });
