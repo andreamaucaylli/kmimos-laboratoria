@@ -22,8 +22,7 @@
 				</div>
 				<div class="col s6 m3 l3">
 					<div class="login right-align">	
-						<a data-remodal-target="modal">Ingresa</a>
-						<span><a href="	">Regístrate</a></span>
+						<a class="waves-effect waves-light btn" data-remodal-target="modal">Ingresa</a>
 					</div>
 				</div>
 			</div>
@@ -97,7 +96,7 @@
 	         var js, fjs = d.getElementsByTagName(s)[0];
 	         if (d.getElementById(id)) {return;}
 	         js = d.createElement(s); js.id = id;
-	         js.src = "//connect.facebook.net/en_US/sdk.js";
+	         js.src = "//connect.facebook.net/es_LA/sdk.js";
 	         fjs.parentNode.insertBefore(js, fjs);
 	       }(document, 'script', 'facebook-jssdk'));
 	      // Facebook api fin
@@ -120,20 +119,8 @@
 							<div class="row">
 								<div class="input-field col s12">
 									<i class="material-icons prefix">location_on</i>
-									<input placeholder="" id="icon_prefix" type="text" class="validate" name="lugar">
+									<input placeholder="Ingresa el distrito" id="icon_prefix" type="text" class="validate distInp" name="lugar">
 									<label for="icon_prefix">Ubicación</label>
-								</div>
-							</div>
-							<div class="row">
-								<div class="input-field col s12">
-									<i class="material-icons prefix">today</i>
-									<input name="fecha" type="text" class="datepicker">
-									<label for="fecha">Desde</label>
-								</div>
-								<div class="input-field col s12">
-									<i class="material-icons prefix">today</i>
-									<input name="fecha" type="text" class="datepicker">
-									<label for="fecha">Hasta</label>
 								</div>
 							</div>
 							<button class="btn waves-effect waves-light" id="btn">Buscar
@@ -183,7 +170,6 @@
 	<script src="js/vendor/jquery-3.1.1.min.js"></script>
 	<script src="https://apis.google.com/js/client:platform.js?onload=renderButton" async defer></script>
 	<script src="js/vendor/materialize.min.js"></script>
-	<script src="js/vendor/jquery.validate.js"></script>
 	<script src="js/vendor/remodal/remodal.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
