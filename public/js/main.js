@@ -1,4 +1,4 @@
-var template ='<div class="col s12 m4">' +
+var template ='<div class="col s12 m12">' +
                 '<div class="card horizontal hoverable">' +
                     '<div class="card-stacked">' +
                         '<div class="card-content teal lighten-2 white-text">' +
@@ -11,8 +11,7 @@ var template ='<div class="col s12 m4">' +
                         '</div>' +
                      '</div>' +
                 '</div>' +
-            '</div>'; 
-     
+            '</div>';
 
 $(document).ready(function(){
   $("#icon_prefix").keyup(validarForm);
@@ -29,7 +28,7 @@ $(document).ready(function(){
   $("#btn").click(function(e){
     e.preventDefault();
     var maxImages = 9;
-    var distritoIngresado = $('#icon_prefix').val();
+    var distritoIngresado = $('#icon_prefix').val();  
 
     $.when(
       $.ajax({ 

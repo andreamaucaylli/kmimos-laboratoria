@@ -3,26 +3,40 @@
 	width: 100%;
 }
 /************/
+
 .ingresa{
 	padding: 0 !important;
-	}
+}
+
+body{
+	font-family: Roboto;
+}
+
 .fondo{
 	background-image: url("../img/wallpaper2.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	padding: 2vh 0vh;
+	height: 83vh;
 }
 
 .login{
 	padding-top: 6vh;
 }
 
+.login a{
+	font-size: 1.3rem;
+}
 .fondo h2, .fondo h5{
 	color: #fff;
 }
 .cajatexto{
 	padding: 2vh;
 	background-color: rgba(0, 0, 0, 0.36);
+}
+
+.row{
+	margin-bottom: 0px;
 }
 .footer{
 	background-color: #637988;
@@ -49,3 +63,7 @@
 .head a{float: right;}
 .profile img{width: 60px;float: left;margin: 0px 10px 10px 0px;}
 .proDetails{float: left;}
+
+div.remodal-overlay{
+	background-color: rgba(22, 76, 63, 0.91);
+}
