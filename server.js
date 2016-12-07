@@ -1,10 +1,10 @@
 var express = require("express");
 var app = express();
-var server = require('https').createServer(app);
+var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 var dream = require('dreamjs');
 
-io.on("connection", function(client) {
+/*io.on("connection", function(client) {
    client.on("conectando", function (usuario) {
     usuario.status = "Conected";
     console.log(usuario);
@@ -19,7 +19,7 @@ io.sockets.on('connection', function(client){
       client.broadcast.emit('message', message.usuario + ' says: ' + message.contenido);
     //}
     });
-});
+});*/
 
 dream.customType('pi', function () {
   return Math.PI;
